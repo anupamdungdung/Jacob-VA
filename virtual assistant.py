@@ -37,8 +37,8 @@ def date():
 def wishme():
     hour()
     speak("Welcome back!")
-    speak("Today's date is")
-    date()
+    #speak("Today's date is")
+    #date()
     speak("Jacob at your service. How can i help you sir ?")
 wishme()    
 
@@ -63,14 +63,26 @@ def take_command():
             keyword = ' '.join(map(str,text)) 
             speak("Ordering from Flipkart")
             driver.get("https://www.flipkart.com/search?q="+keyword)
-            time.sleep(120)
+            time.sleep(15)
             driver.quit()
+        
+        if 'Zomato' in query:
+            list = re.split("\W+",query)
+            text = [word for word in list if word not in stopword]
+            driver = webdriver.Chrome() 
+            text.remove("order")
+            text.remove("Zomato")
+            keyword = ' '.join(map(str,text)) 
+            speak("Ordering from Zomato")
+            driver.get("https://www.zomato.com/search?q="+keyword)
+            time.sleep(15)
+            driver.quit()    
         else:
             speak("Let me search the web for you sir")
             driver = webdriver.Chrome()
             k = query
             driver.get("https://google.co.in/search?q="+k)
-            time.sleep(30)
+            time.sleep(15)
             driver.quit()
     except:
         speak("Unable to get you !")
