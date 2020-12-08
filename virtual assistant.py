@@ -3,6 +3,7 @@ import datetime
 import time
 import speech_recognition as sr
 from selenium import webdriver
+from playsound import playsound
 import re
 import nltk
 
@@ -35,10 +36,10 @@ def date():
     speak(year)
 
 def wishme():
-    hour()
-    speak("Welcome back!")
-    #speak("Today's date is")
-    #date()
+    # hour()
+    # speak("Welcome back!")
+    # #speak("Today's date is")
+    # #date()
     speak("Jacob at your service. How can i help you sir ?")
 wishme()    
 
@@ -47,6 +48,7 @@ def take_command():
     r  = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening........")
+        speak("Listening")
         r.pause_threshold = 1
         audio = r.listen(source)
 
@@ -57,7 +59,7 @@ def take_command():
         if 'Flipkart' in query:
             list = re.split("\W+",query)
             text = [word for word in list if word not in stopword]
-            driver = webdriver.Chrome() 
+            driver = webdriver.Chrome("C:/Users/Anu-PC/AppData/Local/Programs/Python/Python38-32/Scripts/chromedriver.exe")
             text.remove("order")
             text.remove("Flipkart")
             keyword = ' '.join(map(str,text)) 
@@ -76,10 +78,13 @@ def take_command():
             speak("Ordering from Zomato")
             driver.get("https://www.zomato.com/search?q="+keyword)
             time.sleep(15)
-            driver.quit()    
+            driver.quit()
+        elif 'birthday' or 'happy birthday' and 'play' in query:
+            speak("Playing Happy Birthday Song")
+            playsound('happybirthdaysong.mp3')
         else:
             speak("Let me search the web for you sir")
-            driver = webdriver.Chrome()
+            driver = webdriver.Chrome("C:/Users/Anu-PC/AppData/Local/Programs/Python/Python38-32/Scripts/chromedriver.exe")
             k = query
             driver.get("https://google.co.in/search?q="+k)
             time.sleep(15)
