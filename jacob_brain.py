@@ -2,8 +2,8 @@ import speech_recognition as sr
 from jacob_web import*
 from jacob_speech import*
 from jacob_camera import*
+from jacob_calculator import*
 import sys
-import re
 
 wishme()
 
@@ -62,7 +62,15 @@ while True:
                     camera()
                 elif "Flipkart" in text:
                     speak("Ordering from Flipkart")
-                    flipkart(text)   
+                    flipkart(text)
+                elif "Amazon" in text:
+                    speak("Ordering from Amazon")
+                    amazon(text)
+                elif "calculator" in text:
+                    speak("Opening Calculator")
+                    openCalculator()
+                elif "thank you" in text:
+                    thankYou()
                 else:
                     speak("Let me search the web for you sir")
                     web(text)    
