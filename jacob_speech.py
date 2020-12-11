@@ -42,8 +42,11 @@ def my_skills():
     speak("My developers are currently working on embedding IOT features in me as well. Hope you enjoy my services")
 
 def bad_words():
-    speak("Sir please dont abuse. I am sorry if i said something wrong ")
+    speak("Sir Please Don't abuse. I am sorry if I said something wrong ")
 
 def jokes():
     speak(pyjokes.get_joke(language='en',category='neutral'))
+
+def thankYou():
+    speak("It's my pleasure to help you sir!")
     
