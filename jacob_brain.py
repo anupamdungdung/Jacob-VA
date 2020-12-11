@@ -7,7 +7,7 @@ import re
 
 wishme()
 
-bad = ["retard","fool","jerk","idiot","wimp","fuck","bimbo","dumb","creepy","weird","fucking"]
+bad = ["retard","fool","jerk","idiot","wimp","fuck","bimbo","dumb","creepy","weird","fucking","bastard"]
 
 
 while True:
@@ -25,6 +25,7 @@ while True:
             text = query
             if "sleep" in text:
                 speak("Ok sir, I am going to sleep")
+                speak("You can wake me up anytime and I will be ready to serve you. Till then take care")
                 sys.exit(1)
             else:
                 if "YouTube" in text:
@@ -47,17 +48,21 @@ while True:
                         speak("Opening YouTube")
                         youtube("")    
                 elif "date" in text:
+                    speak("Today's date is")
                     date()
                 elif "skills" in text:
                     my_skills()   
                 elif any(x in text for x in bad):
                     bad_words()
                 elif "joke" in text:
-                    speak("Ha Ha, here goes the joke")
+                    speak("Ha! Ha! Ha!, here goes the joke")
                     jokes()    
                 elif "camera" in text:
                     speak("Accessing your device camera")
                     camera()
+                elif "Flipkart" in text:
+                    speak("Ordering from Flipkart")
+                    flipkart(text)   
                 else:
                     speak("Let me search the web for you sir")
                     web(text)    
