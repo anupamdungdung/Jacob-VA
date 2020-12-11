@@ -7,7 +7,7 @@ stopword = nltk.corpus.stopwords.words("english")
 
 
 def web(k) :
-    driver = webdriver.Chrome()  
+    driver = webdriver.Chrome("C:/Users/Anu-PC/AppData/Local/Programs/Python/Python38-32/Scripts/chromedriver.exe")
     driver.get("https://google.co.in/search?q="+k)
     time.sleep(10)
     driver.quit()          
