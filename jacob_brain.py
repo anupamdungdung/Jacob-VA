@@ -1,18 +1,17 @@
 import speech_recognition as sr
-from jacob_web import*
-from jacob_speech import*
-from jacob_camera import*
-from jacob_calculator import*
+from jacob_web import *
+from jacob_speech import *
+from jacob_camera import *
+from jacob_os import *
 import sys
 
 wishme()
 
-bad = ["retard","fool","jerk","idiot","wimp","fuck","bimbo","dumb","creepy","weird","fucking","bastard"]
-
+bad = ["retard", "fool", "jerk", "idiot", "wimp", "fuck", "bimbo", "dumb", "creepy", "weird", "fucking", "bastard"]
 
 while True:
     def take_command():
-        r  = sr.Recognizer()
+        r = sr.Recognizer()
         r.energy_threshold = 1000
         with sr.Microphone() as source:
             print("Listening........")
@@ -20,8 +19,8 @@ while True:
             audio = r.listen(source)
         try:
             print("Recognizing...")
-            query = r.recognize_google(audio,language = 'en-in')
-            print(query) 
+            query = r.recognize_google(audio, language='en-in')
+            print(query)
             text = query
             if "sleep" in text:
                 speak("Ok sir, I am going to sleep")
@@ -46,17 +45,17 @@ while True:
                         youtube("movies")
                     else:
                         speak("Opening YouTube")
-                        youtube("")    
+                        youtube("")
                 elif "date" in text:
                     speak("Today's date is")
                     date()
                 elif "skills" in text:
-                    my_skills()   
+                    my_skills()
                 elif any(x in text for x in bad):
                     bad_words()
                 elif "joke" in text:
                     speak("Ha! Ha! Ha!, here goes the joke")
-                    jokes()    
+                    jokes()
                 elif "camera" in text:
                     speak("Accessing your device camera")
                     camera()
@@ -66,17 +65,22 @@ while True:
                 elif "Amazon" in text:
                     speak("Ordering from Amazon")
                     amazon(text)
-                elif "calculator" in text:
-                    speak("Opening Calculator")
-                    openCalculator()
+                elif "open calculator" in text:
+                    openCalculator(text)
+                elif "close calculator" in text:
+                    closeCalculator(text)
+                elif "open notepad" or "open Notepad" in text:
+                    openNotePad(text)
+                elif "close notepad" in text:
+                    closeNotePad(text)
                 elif "thank you" in text:
                     thankYou()
                 else:
                     speak("Let me search the web for you sir")
-                    web(text)    
+                    web(text)
         except sr.UnknownValueError:
             speak("Unable to get you !")
-            speak("Please say that again")    
-    take_command()
-    
+            speak("Please say that again")
 
+
+    take_command()
