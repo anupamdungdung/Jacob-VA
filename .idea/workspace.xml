@@ -19,11 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45a58c38-825a-4754-a18f-ed7d8bc429f4" name="Default Changelist" comment="'Added calculator thank you speech'">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jacob_brain.py" beforeDir="false" afterPath="$PROJECT_DIR$/jacob_brain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jacob_calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/jacob_os.py" afterDir="false" />
-    </list>
+    <list default="true" id="45a58c38-825a-4754-a18f-ed7d8bc429f4" name="Default Changelist" comment="'Added calculator thank you speech'" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
