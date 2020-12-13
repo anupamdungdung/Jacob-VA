@@ -7,15 +7,14 @@ import sys
 
 wishme()
 
-bad = ["retard", "fool", "jerk", "idiot", "wimp", "fuck", "bimbo", "dumb", "creepy", "weird", "fucking", "bastard"]
+bad = ["retard", "fool", "jerk", "idiot", "wimp", "f***", "bimbo", "dumb", "creepy", "weird", "f******", "bastard"]
 
 while True:
     def take_command():
         r = sr.Recognizer()
-        r.energy_threshold = 1000
+        r.energy_threshold = 2000
         with sr.Microphone() as source:
             print("Listening........")
-            r.pause_threshold = 1
             audio = r.listen(source)
         try:
             print("Recognizing...")
@@ -65,15 +64,13 @@ while True:
                 elif "Amazon" in text:
                     speak("Ordering from Amazon")
                     amazon(text)
-                elif "open calculator" in text:
+                elif "calculator" in text:
+                    speak("Accessing your device Calculator")
                     openCalculator(text)
-                elif "close calculator" in text:
-                    closeCalculator(text)
-                elif "open notepad" or "open Notepad" in text:
+                elif "Notepad" in text:
+                    speak("Accessing your device Notepad")
                     openNotePad(text)
-                elif "close notepad" in text:
-                    closeNotePad(text)
-                elif "thank you" in text:
+                elif "thank" in text:
                     thankYou()
                 else:
                     speak("Let me search the web for you sir")

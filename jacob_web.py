@@ -7,14 +7,14 @@ stopword = nltk.corpus.stopwords.words("english")
 
 
 def web(k):
-    driver = webdriver.Chrome("C:/Users/Anu-PC/AppData/Local/Programs/Python/Python38-32/Scripts/chromedriver.exe")
+    driver = webdriver.Chrome()
     driver.get("https://google.co.in/search?q=" + k)
     time.sleep(10)
     driver.quit()
 
 
 def youtube(k):
-    driver = webdriver.Chrome("C:/Users/Anu-PC/AppData/Local/Programs/Python/Python38-32/Scripts/chromedriver.exe")
+    driver = webdriver.Chrome()
     driver.get("https://www.youtube.com/" + k)
     time.sleep(10)
     driver.quit()
@@ -24,7 +24,7 @@ def flipkart(query):
 
     list = re.split("\W+", query)
     text = [word for word in list if word not in stopword]
-    driver = webdriver.Chrome("C:/Users/Anu-PC/AppData/Local/Programs/Python/Python38-32/Scripts/chromedriver.exe")
+    driver = webdriver.Chrome()
     text.remove("order")
     text.remove("Flipkart")
     keyword = ' '.join(map(str, text))
@@ -36,7 +36,7 @@ def flipkart(query):
 def amazon(query):
     list = re.split("\W+", query)
     text = [word for word in list if word not in stopword]
-    driver = webdriver.Chrome("C:/Users/Anu-PC/AppData/Local/Programs/Python/Python38-32/Scripts/chromedriver.exe")
+    driver = webdriver.Chrome()
     text.remove("order")
     text.remove("Amazon")
     keyword = ' '.join(map(str, text))
